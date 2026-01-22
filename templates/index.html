@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Dashboard</title>
+</head>
+<body>
+    <h1>Aktiviteter</h1>
+    
+    <!-- Länk till formuläret -->
+    <a href="{{ url_for('add_activity') }}">Lägg till aktivitet</a>
+    
+    <ul>
+        {% for act in activities %}
+            <li>{{ act.name }} - {{ act.category }} - {{ act.duration }} min</li>
+        {% else %}
+            <li>Inga aktiviteter ännu</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
