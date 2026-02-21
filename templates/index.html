@@ -4,6 +4,9 @@
     <a href="{{ url_for('add_activity') }}" class="btn btn-primary mb-3">
         Lägg till aktivitet
     </a>
+    <a href="{{ url_for('stats') }}" class="btn btn-info mb-3">
+        Se statistik
+    </a>
 
     {% for activity in activities %}
         <div class="card mb-2 p-3">
