@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lägg till aktivitet</title>
-</head>
-<body>
-    <h1>Lägg till aktivitet</h1>
-    <form method="POST">
-        Namn: <input type="text" name="name"><br>
-        Kategori: <input type="text" name="category"><br>
-        Tid (min): <input type="number" name="duration"><br>
-        <button type="submit">Spara</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Lägg till aktivitet</h3>
+
+<form method="POST" class="mt-4">
+
+<input class="form-control mb-3" name="name" placeholder="Namn">
+
+<input class="form-control mb-3" name="category" placeholder="Kategori">
+
+<input class="form-control mb-3" name="duration" type="number" placeholder="Tid (min)">
+
+<button class="btn btn-success">
+Spara aktivitet
+</button>
+
+</form>
+
+{% endblock %}

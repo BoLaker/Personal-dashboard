@@ -1,24 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Redigera aktivitet</title>
-</head>
-<body>
-    <h1>Redigera aktivitet</h1>
+{% extends "base.html" %}
 
-    <form method="POST">
-        Namn:
-        <input type="text" name="name" value="{{ activity.name }}"><br>
+{% block content %}
 
-        Kategori:
-        <input type="text" name="category" value="{{ activity.category }}"><br>
+<h3>Redigera aktivitet</h3>
 
-        Tid (min):
-        <input type="number" name="duration" value="{{ activity.duration }}"><br>
+<form method="POST" class="mt-4">
 
-        <button type="submit">Spara</button>
-    </form>
+<input class="form-control mb-3"
+       type="text"
+       name="name"
+       value="{{ activity.name }}">
 
-    <a href="{{ url_for('index') }}">Tillbaka</a>
-</body>
-</html>
+<input class="form-control mb-3"
+       type="text"
+       name="category"
+       value="{{ activity.category }}">
+
+<input class="form-control mb-3"
+       type="number"
+       name="duration"
+       value="{{ activity.duration }}">
+
+<button class="btn btn-success">
+Spara ändringar
+</button>
+
+</form>
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">
+Tillbaka
+</a>
+
+{% endblock %}

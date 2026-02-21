@@ -1,15 +1,13 @@
-<div class="container mt-5">
+{% extends "base.html" %}
 
-    <h1>Statistik</h1>
-    
-    <h4>Total tid spenderad: {{ total_minutes }} minuter</h4>
-    
-    <img src="{{ plot_url }}" class="img-fluid mt-4">
-    
-    <br><br>
-    
-    <a href="{{ url_for('index') }}" class="btn btn-secondary">
-    Tillbaka
-    </a>
-    
-    </div>
+{% block content %}
+
+<h3>Statistik</h3>
+
+<h5 class="mb-4">
+Total tid: {{ total_minutes }} min
+</h5>
+
+<img src="{{ plot_url }}" class="img-fluid shadow">
+
+{% endblock %}
