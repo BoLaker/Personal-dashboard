@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from models import db, Activity
+from utils import generate_activity_plot
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///activities.db'
@@ -22,6 +23,18 @@ def add_activity():
         db.session.commit()
         return redirect(url_for('index'))
     return render_template('add_activity.html')
+
+@app.route('/stats')
+def stats():
+    plot_url=generate_activity_plot()
+    return render_template('stats.html', plot_url=plot_url)
+
+@app.route('/delete/<int:id>')
+def delete_activity(id):
+    activity = Activity.query.get_or_404(id)
+    db.session.delete(activity)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     with app.app_context():

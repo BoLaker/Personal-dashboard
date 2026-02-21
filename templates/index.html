@@ -16,5 +16,11 @@
             <li>Inga aktiviteter ännu</li>
         {% endfor %}
     </ul>
+    {% for activity in activities %}
+    <p>
+        {{ activity.name }} - {{ activity.category }} - {{ activity.duration }} min
+        <a href="{{ url_for('delete_activity', id=activity.id) }}">Ta bort</a>
+    </p>
+    {% endfor %}
 </body>
 </html>
