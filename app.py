@@ -36,6 +36,20 @@ def delete_activity(id):
     db.session.commit()
     return redirect(url_for('index'))
 
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def edit_activity(id):
+    activity = Activity.query.get_or_404(id)
+
+    if request.method == 'POST':
+        activity.name = request.form['name']
+        activity.category = request.form['category']
+        activity.duration = int(request.form['duration'])
+
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    return render_template('edit_activity.html', activity=activity)
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Skapar databasen första gången

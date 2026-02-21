@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redigera aktivitet</title>
+</head>
+<body>
+    <h1>Redigera aktivitet</h1>
+
+    <form method="POST">
+        Namn:
+        <input type="text" name="name" value="{{ activity.name }}"><br>
+
+        Kategori:
+        <input type="text" name="category" value="{{ activity.category }}"><br>
+
+        Tid (min):
+        <input type="number" name="duration" value="{{ activity.duration }}"><br>
+
+        <button type="submit">Spara</button>
+    </form>
+
+    <a href="{{ url_for('index') }}">Tillbaka</a>
+</body>
+</html>
